@@ -6,62 +6,118 @@
 
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #fffbea;
-      color: #333;
-      padding: 30px;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #fff6cc, #fffbea);
+      font-family: "Segoe UI", sans-serif;
+      color: #3b3b3b;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 35px 40px;
+      border-radius: 18px;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #e3b300;
+      font-weight: 600;
+    }
+
+    p {
+      line-height: 1.6;
+      margin: 15px 0;
+      font-size: 15px;
     }
 
     button {
-      margin-top: 15px;
-      padding: 10px 15px;
+      background: #ffd84d;
+      border: none;
+      border-radius: 25px;
+      padding: 12px 22px;
+      margin: 12px 6px;
       font-size: 14px;
       cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    button:hover {
+      background: #ffcf2f;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    }
+
+    #hiddenMessage {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #e3b300;
+      font-weight: 600;
+      animation: fadeIn 0.8s ease forwards;
     }
 
     footer {
       margin-top: 30px;
       font-size: 12px;
-      color: #666;
+      color: #999;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(5px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <h2>To My Favorite Nonchalant Person ☝️</h2>
+  <div class="card">
 
-  <p>
-    Happy <strong>2 months</strong> with you, my Nonchalant.<br>
-    Even when you act calm and unbothered, you are my favorite person.
-  </p>
+    <h2>To My Favorite Nonchalant Person ☝️</h2>
 
-  <p>
-    Just like this song, everything feels brighter with you.<br>
-    Thank you for choosing me every day 🤍
-  </p>
+    <p>
+      Happy <strong>2 months</strong> with you, my Nonchalant.<br>
+      Even when you act calm and unbothered, you are my favorite person.
+    </p>
 
-  <!-- 🎵 Audio -->
-  <audio id="bgMusic" loop>
-    <source src="music/yellow.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+    <p>
+      Just like this song, everything feels brighter with you.<br>
+      Thank you for choosing me every day 🤍
+    </p>
 
-  <!-- 🎶 Music Button -->
-  <button onclick="toggleMusic()">Pause / Play Music 🎶</button>
+    <!-- 🎵 Music -->
+    <audio id="bgMusic" loop>
+      <source src="music/yellow.mp3" type="audio/mpeg">
+    </audio>
 
-  <!-- 💛 Hidden Message -->
-  <p id="hiddenMessage" style="display:none; margin-top:20px;">
-    You're my yellow 💛
-  </p>
+    <button onclick="toggleMusic()">Pause / Play Music 🎶</button>
 
-  <button onclick="showMessage()">Click Me 💗</button>
+    <p id="hiddenMessage" style="display:none;">
+      You're my yellow 💛
+    </p>
 
-  <footer>
-    Made by your Favorite QA Person
-  </footer>
+    <button onclick="showMessage()">Click Me 💗</button>
 
-  <!-- 📜 JavaScript -->
+    <footer>
+      Made by your Favorite QA Person
+    </footer>
+
+  </div>
+
   <script>
     const music = document.getElementById("bgMusic");
 
